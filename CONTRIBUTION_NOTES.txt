@@ -1,0 +1,35 @@
+╔══════════════════════════════════════════════════════════════╗
+║        CONTRIBUTION: REVIEW MANAGEMENT MODULE                ║
+║        LankaTrail – Tourism Package System                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+CONTRIBUTOR RESPONSIBILITY
+--------------------------
+This component covers: Customers submit, edit, and delete their reviews.
+Admins can delete any review. All reviews visible publicly.
+
+FILES OWNED BY THIS CONTRIBUTOR
+---------------------------------
+model/
+  └── Review.java          ← Entity: id, username, packageId, rating, comment
+                              displayReview(), toFileString()
+
+service/
+  └── ReviewService.java   ← add, all, getById, update (own only), delete (own or admin)
+
+servlet/
+  └── ReviewServlet.java   ← /add-review  /update-review  /delete-review
+
+webapp/
+  └── reviews.jsp          ← Public listing + submit form for customers
+                              + inline edit + admin delete
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+- Encapsulation: Review fields private with getters
+- Abstraction: displayReview() hides formatting details
+- Access Control: update only by owner; delete by owner or admin
+
+HOW TO RUN (full project)
+--------------------------
+See README_RUN_STEPS.txt
