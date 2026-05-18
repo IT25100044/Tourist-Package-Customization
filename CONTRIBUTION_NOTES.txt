@@ -1,0 +1,39 @@
+╔══════════════════════════════════════════════════════════════╗
+║        CONTRIBUTION: BOOKING MANAGEMENT MODULE               ║
+║        LankaTrail – Tourism Package System                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+CONTRIBUTOR RESPONSIBILITY
+--------------------------
+This component covers: Creating bookings, viewing booking history,
+updating booking dates/persons, cancelling bookings.
+
+FILES OWNED BY THIS CONTRIBUTOR
+---------------------------------
+model/
+  └── Booking.java         ← Booking entity, isValidBooking()
+
+service/
+  └── BookingService.java  ← add, all, search, updateStatus, updateBooking, delete
+
+servlet/
+  └── BookingServlet.java  ← /book-package  /update-booking  /delete-booking
+
+webapp/
+  └── bookings.jsp         ← Customer: My Bookings | Admin: All Bookings
+
+DEPENDENCIES (included for compile-only reference)
+---------------------------------
+  model/User.java, CustomerUser.java, AdminUser.java
+  model/TravelPackage.java, StandardPackage.java, CustomPackage.java
+  service/PackageService.java
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+- Encapsulation: Booking fields private, exposed via getters
+- Abstraction: isValidBooking() hides validation logic
+- Dependency: BookingService depends on FileUtil for storage
+
+HOW TO RUN (full project)
+--------------------------
+See README_RUN_STEPS.txt
