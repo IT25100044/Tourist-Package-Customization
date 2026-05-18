@@ -1,0 +1,38 @@
+╔══════════════════════════════════════════════════════════════╗
+║        CONTRIBUTION: USER MANAGEMENT MODULE                  ║
+║        LankaTrail – Tourism Package System                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+CONTRIBUTOR RESPONSIBILITY
+--------------------------
+This component covers: User Registration, Login, Logout, Profile Management
+
+FILES OWNED BY THIS CONTRIBUTOR
+---------------------------------
+model/
+  ├── User.java            ← Base user class (parent)
+  ├── CustomerUser.java    ← Customer subclass
+  └── AdminUser.java       ← Admin subclass
+
+service/
+  └── UserService.java     ← File-based CRUD, login, validation
+
+servlet/
+  └── AuthServlet.java     ← /register /login /logout /profile-update /delete-user
+
+webapp/
+  ├── login.jsp            ← Login form (customers + admins)
+  ├── register.jsp         ← Customer registration form
+  ├── profile.jsp          ← Customer profile + update
+  └── admin-login.jsp      ← Redirect helper
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+- Inheritance: CustomerUser and AdminUser extend User
+- Polymorphism: displayType() overridden in each subclass
+- Encapsulation: private fields with getters
+
+HOW TO RUN (full project)
+--------------------------
+See README_RUN_STEPS.txt
+HEAD ADMIN → Username: SadeepLakshan | Password: 2004
