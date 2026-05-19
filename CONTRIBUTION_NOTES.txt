@@ -1,0 +1,40 @@
+╔══════════════════════════════════════════════════════════════╗
+║        CONTRIBUTION: PACKAGE CUSTOMIZATION MODULE            ║
+║        LankaTrail – Tourism Package System                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+CONTRIBUTOR RESPONSIBILITY
+--------------------------
+This component covers: Standard packages (admin adds/deletes),
+Customer package customization (hotel + transport + activity),
+Price list management (admin manages dropdown options).
+
+FILES OWNED BY THIS CONTRIBUTOR
+---------------------------------
+model/
+  ├── TravelPackage.java   ← Abstract base class with calculatePrice()
+  ├── StandardPackage.java ← Concrete: basePrice - discount
+  └── CustomPackage.java   ← Concrete: (hotel+transport+activity)*persons - discount
+
+service/
+  ├── PackageService.java  ← CRUD for standard & custom packages
+  └── PriceListService.java← Manages hotel/transport/activity dropdown prices
+
+servlet/
+  └── PackageServlet.java  ← /add-package /customize-package /delete-package
+                              /add-price /update-price /delete-price
+
+webapp/
+  ├── packages.jsp         ← Browse & book standard; create custom package
+  └── price-list.jsp       ← Admin: manage dropdown price items
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+- Abstraction: TravelPackage is abstract; calculatePrice() is abstract method
+- Inheritance: StandardPackage and CustomPackage extend TravelPackage
+- Polymorphism: calculatePrice() behaves differently per type
+- Encapsulation: All package fields private with getters
+
+HOW TO RUN (full project)
+--------------------------
+See README_RUN_STEPS.txt
