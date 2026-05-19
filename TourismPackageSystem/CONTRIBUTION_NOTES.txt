@@ -1,0 +1,42 @@
+╔══════════════════════════════════════════════════════════════╗
+║        CONTRIBUTION: PAYMENT MANAGEMENT MODULE               ║
+║        LankaTrail – Tourism Package System                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+CONTRIBUTOR RESPONSIBILITY
+--------------------------
+This component covers: Customers upload payment slips (CARD / ONLINE),
+admin validates (Approve/Reject), booking status updates automatically,
+notification sent to customer on validation result.
+
+FILES OWNED BY THIS CONTRIBUTOR
+---------------------------------
+model/
+  ├── Payment.java         ← Abstract: processPayment(), toFileString()
+  ├── CardPayment.java     ← Concrete CARD subclass
+  ├── OnlinePayment.java   ← Concrete ONLINE subclass
+  ├── Booking.java         ← For status update after validation
+  └── Notification.java    ← Auto-notification after approve/reject
+
+service/
+  ├── PaymentService.java  ← add, all, search, updateStatus, deleteRejected
+  ├── BookingService.java  ← updateStatus (CONFIRMED / PAYMENT_REJECTED)
+  └── NotificationService.java ← add notification on validation
+
+servlet/
+  └── PaymentServlet.java  ← /make-payment  /validate-payment
+                              /delete-rejected-payment  (@MultipartConfig for slip upload)
+
+webapp/
+  └── payments.jsp         ← Customer: upload slip | Admin: approve/reject panel
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+- Abstraction: Payment is abstract; processPayment() must be implemented
+- Inheritance: CardPayment, OnlinePayment extend Payment
+- Polymorphism: method/status handled per subtype
+- Encapsulation: private fields, status only changed via service
+
+HOW TO RUN (full project)
+--------------------------
+See README_RUN_STEPS.txt
