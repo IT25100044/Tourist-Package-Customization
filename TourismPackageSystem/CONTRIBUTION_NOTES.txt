@@ -1,0 +1,39 @@
+╔══════════════════════════════════════════════════════════════╗
+║        CONTRIBUTION: ADMIN MANAGEMENT MODULE                 ║
+║        LankaTrail – Tourism Package System                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+CONTRIBUTOR RESPONSIBILITY
+--------------------------
+This component covers: Admin dashboard (stats overview),
+manage customers/co-admins (update, delete), create sub-admin accounts,
+admin profile view/update.
+
+FILES OWNED BY THIS CONTRIBUTOR
+---------------------------------
+model/
+  ├── User.java            ← Base user class
+  ├── CustomerUser.java    ← Customer subclass
+  └── AdminUser.java       ← Admin subclass (HEAD_ADMIN / SUB_ADMIN)
+
+service/
+  └── UserService.java     ← search, getCustomers, getSubAdmins, deleteUser, updateUser
+
+servlet/
+  └── AuthServlet.java     ← /admin-update-user  /delete-user  /create-subadmin
+
+webapp/
+  ├── admin-dashboard.jsp  ← Stats panel (customers, admins, packages, bookings)
+  ├── admin-profile.jsp    ← Admin's own profile update
+  └── manage-users.jsp     ← List & update customers and co-admins
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+- Inheritance: AdminUser extends User; role-based displayType()
+- Polymorphism: HEAD_ADMIN vs SUB_ADMIN behaviour in UI
+- Encapsulation: All fields private; role checked before any action
+
+HOW TO RUN (full project)
+--------------------------
+See README_RUN_STEPS.txt
+HEAD ADMIN → Username: SadeepLakshan | Password: 2004
